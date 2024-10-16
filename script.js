@@ -5,3 +5,20 @@ subtract
 multiply
 divide
 */
+
+
+function add () {
+
+}
+
+function substract () {
+
+}
+
+function multiply () {
+
+}
+
+function divide () {
+    
+}
