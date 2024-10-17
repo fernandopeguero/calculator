@@ -33,3 +33,15 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* Root variables  */
+
+:root {
+    /* colors */
+    --main-text-color: #F4F6FF;
+    --main-bg-color: #10375C;
+    --main-accent-color: #EB8317;
+
+    /* secundary color */
+    --secundary-accent-color: #F3C623;
+}
