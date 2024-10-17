@@ -101,6 +101,10 @@ button {
     cursor: pointer;
 }
 
-button:focus {
+button:hover {
     background-color: var(--main-body-color);
 }
+
+/* button:focus {
+    background-color: var(--main-bg-color);
+} */
