@@ -9,7 +9,7 @@ divide
 const textDisplay = document.querySelector(".display-text");
 const container = document.querySelector(".container");
 
-let currentNumber = ""
+const currentNumber = [];
 let previousNumber = "";
 
 container.addEventListener("click" , (e) => {
@@ -31,21 +31,18 @@ container.addEventListener("click" , (e) => {
         case "8":
         case "9": 
          if (currentNumber.length < 20) {
-                currentNumber += userSelection;
+                currentNumber.push(userSelection);
  
             }
 
-            textDisplay.textContent = currentNumber;
+            textDisplay.textContent = currentNumber.join("");
            
         break;
         case "backspace":
-            if(currentNumber.length === 0 || currentNumber.length === 1) {
-                currentNumber = "";
-            } else {
-                currentNumber = currentNumber.substring(0 , currentNumber.length - 1);
-                
+            if(currentNumber.length > 0){
+                currentNumber.pop();
             }
-            textDisplay.textContent = currentNumber;
+            textDisplay.textContent = currentNumber.length ? currentNumber.join("") : currentNumber.length;
         break;
 
     }
