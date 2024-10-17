@@ -104,7 +104,3 @@ button {
 button:hover {
     background-color: var(--main-body-color);
 }
-
-/* button:focus {
-    background-color: var(--main-bg-color);
-} */
