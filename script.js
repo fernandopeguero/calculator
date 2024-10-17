@@ -17,6 +17,8 @@ container.addEventListener("click" , (e) => {
 
     const userSelection = e.target.value
 
+    console.log(userSelection)
+
     switch(userSelection) {
         case "0":
         case "1":
@@ -28,11 +30,22 @@ container.addEventListener("click" , (e) => {
         case "7":
         case "8":
         case "9": 
-            if(currentNumber.length < 20) {
+         if (currentNumber.length < 20) {
                 currentNumber += userSelection;
-                textDisplay.textContent = currentNumber;
+ 
             }
+
+            textDisplay.textContent = currentNumber;
            
+        break;
+        case "backspace":
+            if(currentNumber.length === 0 || currentNumber.length === 1) {
+                currentNumber = "";
+            } else {
+                currentNumber = currentNumber.substring(0 , currentNumber.length - 1);
+                
+            }
+            textDisplay.textContent = currentNumber;
         break;
 
     }
