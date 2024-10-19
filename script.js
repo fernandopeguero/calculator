@@ -126,7 +126,9 @@ function operate() {
             total = multiply(Number(previousNumber.join("")),Number(currentNumber.join("")));
             break;
     }
-
+    
+    total = removeDecimal(total);
+    
     currentNumber = [total];
     previousNumber = [];
     operator = "";
@@ -146,4 +148,14 @@ function setOperation (simbol) {
 
 function setHintText (value = [], simbol = "") {
     hint.textContent = `${value.join("")}${simbol}`;
+}
+
+function removeDecimal(num){
+
+    const [wholeNumber , decimal] = num.toString().split(".");
+
+    const isDecimalZero = Number(decimal[0]) === 0;
+
+    return isDecimalZero ? wholeNumber : num;
+
 }
