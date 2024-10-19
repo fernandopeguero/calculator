@@ -128,9 +128,7 @@ function operate() {
             break;
     }
     
-    // total = removeDecimal(total);
-    
-    currentNumber = [total];
+    currentNumber = [];
     previousNumber = [];
     operator = "";
     textDisplay.textContent = "";
