@@ -46,6 +46,7 @@ container.addEventListener("click" , (e) => {
             textDisplay.textContent = currentNumber.length ? currentNumber.join("") : currentNumber.length;
         break;
         case "plus":
+            
             setOperation("+");
             break;
         case "minus":
@@ -138,6 +139,7 @@ function operate() {
 }
 
 function setOperation (simbol) {
+    if(currentNumber.length === 0) return 
     previousNumber = [...currentNumber];
     currentNumber = [];
     textDisplay.textContent = currentNumber.length;
