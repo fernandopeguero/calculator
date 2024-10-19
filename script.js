@@ -68,11 +68,7 @@ container.addEventListener("click" , (e) => {
             operate()
             break;
         case "toggle":
-            if(operator === "+"){
-                operator = "-";
-            } else if (operator === "-"){
-                operator = "+";
-            }
+           toggleOperator()
             break;
         case "clear":
             clear()
@@ -162,3 +158,18 @@ function removeDecimal(num){
     return isDecimalZero ? wholeNumber : num;
 
 }
+
+
+function toggleOperator() {
+
+    console.log("loco");
+    if(operator === "+"){
+        operator = "-";
+    } else if (operator === "-"){
+        operator = "+";
+    }
+
+    setHintText(previousNumber, operator)
+}
+
+
