@@ -18,8 +18,6 @@ container.addEventListener("click" , (e) => {
 
     const userSelection = e.target.value.trim()
 
-    console.log(userSelection)
-
     switch(userSelection) {
         case "0":
         case "1":
