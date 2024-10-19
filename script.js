@@ -162,7 +162,6 @@ function removeDecimal(num){
 
 function toggleOperator() {
 
-    console.log("loco");
     if(operator === "+"){
         operator = "-";
     } else if (operator === "-"){
