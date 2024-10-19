@@ -128,19 +128,22 @@ function operate() {
             break;
     }
     
-    total = removeDecimal(total);
+    // total = removeDecimal(total);
     
     currentNumber = [total];
     previousNumber = [];
     operator = "";
-    textDisplay.textContent = total
-    setHintText()
+    textDisplay.textContent = "";
+    setHintText(total.toString().split(""))
     
 }
 
+
 function setOperation (simbol) {
     if(currentNumber.length === 0) return 
-    previousNumber = [...currentNumber];
+    if(previousNumber.length === 0 ) {
+        previousNumber = [...currentNumber];
+    }
     currentNumber = [];
     textDisplay.textContent = currentNumber.length;
     operator = simbol;
