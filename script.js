@@ -9,7 +9,8 @@ divide
 const textDisplay = document.querySelector(".display-text");
 const container = document.querySelector(".container");
 
-const currentNumber = [];
+
+let currentNumber = [];
 let previousNumber = "";
 
 container.addEventListener("click" , (e) => {
@@ -44,6 +45,10 @@ container.addEventListener("click" , (e) => {
             }
             textDisplay.textContent = currentNumber.length ? currentNumber.join("") : currentNumber.length;
         break;
+        case "clear":
+            currentNumber = []
+            textDisplay.textContent = currentNumber.length;
+            break;
 
     }
 })
