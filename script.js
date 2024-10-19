@@ -9,9 +9,19 @@ divide
 const textDisplay = document.querySelector(".display-text");
 const container = document.querySelector(".container");
 
+// CONSTANTS 
+
+const MAX_NUMBERS = 10;
+
 
 let currentNumber = [];
 let previousNumber = "";
+let calculationObject = {
+    "plus": [],
+    "minus":[],
+    "divide": [],
+    "mutiply":[],
+};
 
 container.addEventListener("click" , (e) => {
     e.preventDefault();
@@ -31,7 +41,7 @@ container.addEventListener("click" , (e) => {
         case "7":
         case "8":
         case "9": 
-         if (currentNumber.length < 20) {
+         if (currentNumber.length < MAX_NUMBERS) {
                 currentNumber.push(userSelection);
  
             }
@@ -45,15 +55,23 @@ container.addEventListener("click" , (e) => {
             }
             textDisplay.textContent = currentNumber.length ? currentNumber.join("") : currentNumber.length;
         break;
+        case "plus":
+            break;
+        case "equals":
+        
+            break;
         case "clear":
-            currentNumber = []
-            textDisplay.textContent = currentNumber.length;
+            clear()
             break;
 
     }
 })
 
-function add () {
+function add (...nums) {
+
+    return nums.reduce((accumulator, current) => {
+        accumulator += current;
+    }, 0)
 
 }
 
@@ -68,3 +86,10 @@ function multiply () {
 function divide () {
     
 }
+
+function clear () {
+    currentNumber = []
+    textDisplay.textContent = currentNumber.length;
+}
+
+
