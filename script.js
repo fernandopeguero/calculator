@@ -58,6 +58,14 @@ container.addEventListener("click" , (e) => {
         case "equals":
             operate()
             break;
+        case "toggle":
+            if(operator === "+"){
+                operator = "-";
+            } else if (operator === "-"){
+                operator = "+";
+            }
+            console.log(operator)
+            break;
         case "clear":
             clear()
             break;
