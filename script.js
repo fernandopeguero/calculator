@@ -3,6 +3,8 @@
 const textDisplay = document.querySelector(".display-text");
 const container = document.querySelector(".container");
 
+const hint = document.querySelector(".hint");
+
 // CONSTANTS 
 
 const MAX_NUMBERS = 10;
@@ -101,6 +103,7 @@ function clear () {
     previousNumber = []
     operator = ""
     textDisplay.textContent = currentNumber.length;
+    setHintText();
 }
 
 
@@ -128,6 +131,8 @@ function operate() {
     previousNumber = [];
     operator = "";
     textDisplay.textContent = total
+    setHintText()
+    
 }
 
 function setOperation (simbol) {
@@ -135,4 +140,10 @@ function setOperation (simbol) {
     currentNumber = [];
     textDisplay.textContent = currentNumber.length;
     operator = simbol;
+
+    setHintText(previousNumber, simbol);
+}
+
+function setHintText (value = [], simbol = "") {
+    hint.textContent = `${value.join("")}${simbol}`;
 }
