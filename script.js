@@ -55,6 +55,12 @@ container.addEventListener("click" , (e) => {
         case "divide":
             setOperation("/");
             break;
+        case "dot":
+            if(!currentNumber.includes(".")){
+                currentNumber.push(".");
+            }
+            textDisplay.textContent = currentNumber.join("");
+            break;
         case "equals":
             operate()
             break;
@@ -64,7 +70,6 @@ container.addEventListener("click" , (e) => {
             } else if (operator === "-"){
                 operator = "+";
             }
-            console.log(operator)
             break;
         case "clear":
             clear()
@@ -75,20 +80,20 @@ container.addEventListener("click" , (e) => {
 
 function add (first , second) {
 
-    return first + second
+    return (first + second).toFixed(1);
 
 }
 
 function substract (first, second) {
-    return first - second;
+    return (first - second).toFixed(1);
 }
 
 function multiply (first, second) {
-    return first * second;
+    return (first * second).toFixed(1);
 }
 
 function divide (first, second) {
-    return first / second;
+    return (first / second).toFixed(1);
 }
 
 function clear () {
