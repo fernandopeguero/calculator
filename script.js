@@ -1,10 +1,4 @@
-// to create a simple calculator we need at minimun 4 funtion 
-/* we need 4 funtion to create a simple calculator we can add more later
-add
-subtract
-multiply
-divide
-*/
+"use strict";
 
 const textDisplay = document.querySelector(".display-text");
 const container = document.querySelector(".container");
@@ -15,18 +9,14 @@ const MAX_NUMBERS = 10;
 
 
 let currentNumber = [];
-let previousNumber = "";
-let calculationObject = {
-    "plus": [],
-    "minus":[],
-    "divide": [],
-    "mutiply":[],
-};
+let previousNumber = [];
+let operator = "";
+
 
 container.addEventListener("click" , (e) => {
     e.preventDefault();
 
-    const userSelection = e.target.value
+    const userSelection = e.target.value.trim()
 
     console.log(userSelection)
 
@@ -56,9 +46,13 @@ container.addEventListener("click" , (e) => {
             textDisplay.textContent = currentNumber.length ? currentNumber.join("") : currentNumber.length;
         break;
         case "plus":
+           previousNumber = [...currentNumber];
+           currentNumber = [];
+           textDisplay.textContent = currentNumber.length;
+           operator = "+";
             break;
         case "equals":
-        
+            operate()
             break;
         case "clear":
             clear()
@@ -67,11 +61,9 @@ container.addEventListener("click" , (e) => {
     }
 })
 
-function add (...nums) {
+function add (first , second) {
 
-    return nums.reduce((accumulator, current) => {
-        accumulator += current;
-    }, 0)
+    return first + second
 
 }
 
@@ -93,3 +85,18 @@ function clear () {
 }
 
 
+function operate() {
+
+    if(currentNumber.length === 0 || previousNumber.length === 0) return;
+
+    let total = 0;
+    switch(operator) {
+        case "+":
+            total = add(Number(currentNumber.join("")), Number(previousNumber.join("")))
+            break;
+    }
+
+    currentNumber = [];
+    previousNumber = [];
+    textDisplay.textContent = total
+}
