@@ -61,8 +61,9 @@ body {
 .display {
     flex: 1;
     display: flex;
-    justify-content: end;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
     padding-right: 34px;
 }
 
@@ -103,4 +104,9 @@ button {
 
 button:hover {
     background-color: var(--main-body-color);
+}
+
+.hint {
+    opacity: 0.7;
+    font-weight: bold;
 }
