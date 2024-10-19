@@ -93,6 +93,8 @@ function divide (first, second) {
 
 function clear () {
     currentNumber = []
+    previousNumber = []
+    operator = ""
     textDisplay.textContent = currentNumber.length;
 }
 
@@ -119,6 +121,7 @@ function operate() {
 
     currentNumber = [total];
     previousNumber = [];
+    operator = "";
     textDisplay.textContent = total
 }
 
