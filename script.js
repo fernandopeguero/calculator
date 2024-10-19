@@ -46,10 +46,16 @@ container.addEventListener("click" , (e) => {
             textDisplay.textContent = currentNumber.length ? currentNumber.join("") : currentNumber.length;
         break;
         case "plus":
-           previousNumber = [...currentNumber];
-           currentNumber = [];
-           textDisplay.textContent = currentNumber.length;
-           operator = "+";
+            setOperation("+");
+            break;
+        case "minus":
+           setOperation("-");
+            break;
+        case "multiply":
+            setOperation("*");
+            break;
+        case "divide":
+            setOperation("/");
             break;
         case "equals":
             operate()
@@ -67,16 +73,16 @@ function add (first , second) {
 
 }
 
-function substract () {
-
+function substract (first, second) {
+    return first - second;
 }
 
-function multiply () {
-
+function multiply (first, second) {
+    return first * second;
 }
 
-function divide () {
-    
+function divide (first, second) {
+    return first / second;
 }
 
 function clear () {
@@ -92,11 +98,27 @@ function operate() {
     let total = 0;
     switch(operator) {
         case "+":
-            total = add(Number(currentNumber.join("")), Number(previousNumber.join("")))
+            total = add(Number(previousNumber.join("")),Number(currentNumber.join("")));
+            break;
+        case "-":
+            total = substract(Number(previousNumber.join("")),Number(currentNumber.join("")));
+        break;
+        case "/":
+            total = divide(Number(previousNumber.join("")),Number(currentNumber.join("")));
+            break; 
+        case "*":
+            total = multiply(Number(previousNumber.join("")),Number(currentNumber.join("")));
             break;
     }
 
-    currentNumber = [];
+    currentNumber = [total];
     previousNumber = [];
     textDisplay.textContent = total
+}
+
+function setOperation (simbol) {
+    previousNumber = [...currentNumber];
+    currentNumber = [];
+    textDisplay.textContent = currentNumber.length;
+    operator = simbol;
 }
