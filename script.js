@@ -132,7 +132,7 @@ function operate() {
     previousNumber = [];
     operator = "";
     textDisplay.textContent = "";
-    setHintText(total.toString().split(""))
+    setHintText(total.toString().split(""), "", true)
     
 }
 
@@ -149,8 +149,8 @@ function setOperation (simbol) {
     setHintText(previousNumber, simbol);
 }
 
-function setHintText (value = [], simbol = "") {
-    hint.textContent = `${value.join("")}${simbol}`;
+function setHintText (value = [], simbol = "" , equals = false) {
+    hint.textContent = `${equals ? "= " : ""}${value.join("")}${simbol}`;
 }
 
 function removeDecimal(num){
