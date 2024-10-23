@@ -135,9 +135,7 @@ function operate() {
 
 function setOperation (simbol) {
     if(currentNumber.length === 0) return 
-    if(previousNumber.length === 0 ) {
-        previousNumber = [...currentNumber];
-    }
+    previousNumber = [...currentNumber];
     currentNumber = [];
     textDisplay.textContent = currentNumber.length;
     operator = simbol;
