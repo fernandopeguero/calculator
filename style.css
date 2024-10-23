@@ -106,6 +106,10 @@ button:hover {
     background-color: var(--main-body-color);
 }
 
+button:active {
+    background-color: var(--main-accent-color);
+}
+
 .hint {
     opacity: 0.7;
     font-weight: bold;
